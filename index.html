@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Jquery</title>
+</head>
+<body class="bg-dark">
+
+
+    <div class="main-container">
+        <h1 class="text-light text-center m-4">Manipulação de elementos</h1>
+
+        <div class="container d-flex col">
+        <div class="card m-2 ">
+                <div class="card" id="lorem-text-1">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere asperiores corrupti deleniti! Magnam animi delectus dignissimos distinctio dicta non iusto necessitatibus deleniti nam fugit, sequi laborum deserunt reiciendis suscipit incidunt.
+                nda praesent voluptatibus inventore quisquam? Reprehenderit saepe nostrum minima.
+                </div>
+                <button class="btn btn-primary">Mudar texto!</button>
+        </div>
+        <div class="card m-2">
+            <h2>Adicionar elementos HTML</h2>
+                <div class="card text-primary" id="lorem-text-1">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. n iusto necessitatibus deleniti nam fugit, sequi laborum deserunt reiciendis suscipit incidunt.
+                e, natus doloribus expedita. Vero reprehenderit voluptatibus inventore quisquam? Reprehenderit saepe nostrum minima.
+                </div>
+        </div>
+        
+        </div>
+        <div class="container">
+            <h1 class="text-light text-center m-4">Manipulação de textos - clique nos textos</h1>
+            <div class="card m-2">
+                <h2>Concatenar textos </h2>
+                <div class="card text-secondary" >
+                    O Curso <strong>TGPSI é... </strong> 
+                </div>
+                <div class="card text-warning" >
+                    Audaces Fortuna Juvat
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1 class="text-light text-center m-4">Manipulação de classes CSS </h1>
+            <div class="bg-warning p-3"> </div>
+            <button class="btn btn-outline-primary mt-2">adicionar classe!</button>
+            <button class="btn btn-outline-secondary mt-2">remover classe!</button>
+            <button class="btn btn-outline-success mt-2">alterna entre classe!</button>
+        </div>
+        <div class="container">
+            <h1 class="text-light text-center m-4">Animações </h1>
+            <p id="animation" class="text-light text-animation">Lorem, ipsum dolor.</p>
+            <button id="fade-in" class="btn btn-primary mt-2 ">Fade-in</button>
+            <button id="fade-out"class="btn btn-secondary mt-2 ">Fade-out</button>
+            <button id="animate"class="btn btn-success mt-2 animate">Animate</button>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="text-light">Nome</th>
+                <th scope="col" class="text-light">Genero</th>
+                <th scope="col" class="text-light">DataNascimento</th>
+              </tr>
+            </thead>
+            <tbody id="table-content">
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="btn btn-secondary">Obtém dados</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
+<script >
+//syntax do jquery é o sinal de dolar seguindo com os parenteses $(). Este é o nosso seletor, com ele é possível aceder os elementos na página
+
+//declaração de funções em Jquery
+$(document).ready(()=> {
+
+    //declaração de evento click com botão
+    $('.btn').click(() => {
+        //adiciona texto ao elemento
+        $("#lorem-text-1").text("texto alterado com jquery!!");
+    });
+
+    //declaração de evento click com botão
+    $('.text-primary').click(() => {
+
+        //adição de html na página
+        $(".text-primary").html(`<p>É querer estar preso por vontade;
+                    É servir a quem vence,<b> o vencedor</b>;
+                    É ter com quem nos mata lealdade.</p> - Camões`);
+    });
+
+    //declaração de evento click com botão
+    $('.text-secondary').click(() => {
+
+        //concatenação depois do texto
+        $(".text-secondary").append("O melhor em Lisboa!!");
+    });
+
+    //declaração de evento click com botão
+    $('.text-warning').click(() => {
+
+        //concatenação antes do texto
+        $(".text-warning").prepend("<b>A Sorte protege os audazes!</b>");
+    });
+
+    //declaração de evento click com botão
+    $('.btn-outline-primary').click(() => {
+
+        //adição de classe no elemento
+        $(".bg-warning").addClass("bg-danger");
+    });
+
+    //declaração de evento click com botão
+    $('.btn-outline-secondary').click(() => {
+
+        //remove classe do elemento
+        $(".bg-warning").removeClass("bg-danger");
+    });
+
+    //declaração de evento click com botão
+    $('.btn-outline-success').click(() => {
+
+        //alterna classe do elemento
+        $(".bg-warning").toggleClass("bg-danger");
+    });
+
+
+    //botão de click para acionar o ajax
+    $('.btn-fetch').click(()=> { //todo acabar ajax
+        //efetua o pedido a api e preenche a tabela
+        $.get("https://aulasweb.vigion.pt/Php/api/AlunoGetAll.php", (data, statusCode) => {
+           console.log(data);
+        });
+    });
+});
+</script>
